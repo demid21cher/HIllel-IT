@@ -1,0 +1,39 @@
+p {
+  background-color: lightgray;
+}
+
+.class-selector {
+  background-color: lightblue;
+}
+
+#id-selector {
+  background-color: lightgreen;
+}
+
+[data-type] {
+  background-color: khaki;
+}
+
+div span {
+  background-color: peachpuff;
+}
+
+div > p {
+  background-color: pink;
+}
+
+p.chain {
+  background-color: orange;
+}
+
+p.combo[data-combo] {
+  background-color: violet;
+}
+
+.section p {
+  background-color: lightcoral;
+}
+
+#wrapper span {
+  background-color: lightseagreen;
+}

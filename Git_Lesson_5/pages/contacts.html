@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="../index.html">Home</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/articles.html">Articles</a>
+      <a href="/pages/contacts.html"><strong>Contacts</strong></a>
+      <a href="/pages/gallery.html">Gallery</a>
+    </nav>
+
+    <main class="contacts">
+      <section style="text-align: center">
+        <h1>Зв'язатися з нами</h1>
+        <p>Маєте запитання чи пропозицію? Напишіть нам!</p>
+
+        <form class="form_contacts">
+          <div>
+            <label for="name">Імʼя:</label><br />
+            <input
+              class="individual-borders"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Введіть ваше ім'я"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="email">Пошта:</label><br />
+            <input
+              class="individual-borders"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@mail.com"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="message">Ваше повідомлення:</label><br />
+            <textarea
+              class="uniform-border"
+              id="message"
+              name="message"
+              rows="5"
+              cols="40"
+              placeholder="Опишіть ваше питання..."
+            ></textarea>
+          </div>
+
+          <button type="submit">Надіслати повідомлення</button>
+        </form>
+      </section>
+    </main>
+    <footer
+      style="
+        background-color: rgb(174, 174, 167);
+        padding: 8px;
+        text-align: center;
+      "
+    >
+      <p><strong>Create in 2026</strong></p>
+    </footer>
+  </body>
+</html>

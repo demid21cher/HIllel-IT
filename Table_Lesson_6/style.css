@@ -1,0 +1,31 @@
+.container {
+  padding-left: 0 calc(50vw - 640px);
+  padding-right: 0 calc(50vw - 640px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+
+table td {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.black {
+  background-color: black;
+}
+
+.blue {
+  background-color: blue;
+}

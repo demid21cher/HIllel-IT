@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <p>Селектор: p (вага 1)</p>
+
+    <p class="class-selector">Селектор: .class-selector (вага 10)</p>
+
+    <p id="id-selector">Селектор: #id-selector (вага 100)</p>
+
+    <p data-type="attr">Селектор: [data-type] (вага 10)</p>
+
+    <div>
+      <span> Селектор: div span (вага 2) </span>
+    </div>
+
+    <div>
+      <p>Селектор: div > p (вага 2)</p>
+    </div>
+
+    <p class="chain">Селектор: p.chain (вага 11)</p>
+
+    <p class="combo" data-combo="yes">
+      Селектор: p.combo[data-combo] (вага 21)
+    </p>
+
+    <section class="section">
+      <p>Селектор: .section p (вага 11)</p>
+    </section>
+
+    <div id="wrapper">
+      <span> Селектор: #wrapper span (вага 101) </span>
+    </div>
+  </body>
+</html>

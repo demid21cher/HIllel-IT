@@ -1,0 +1,110 @@
+/*Gallery css*/
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+.gallery figure {
+  margin: 0;
+  text-align: center;
+}
+.gallery img {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+}
+.gallery figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/*Navbar*/
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 12px 20px;
+  background-color: #f5f5f5;
+}
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/*Index css*/
+.welcome {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+}
+
+.form_study {
+  border-width: 3px;
+  border-style: solid;
+  display: inline-block;
+  padding: 20px;
+  border-color: #333;
+  border-radius: 8px;
+  text-align: left;
+}
+.form_study div {
+  margin-bottom: 15px;
+}
+
+/*About css*/
+.pro_nas {
+  font-size: 22px;
+  font-family: 'Oswald', sans-serif;
+  list-style-type: square;
+}
+.cenosti_form {
+  text-align: center;
+}
+.cenosti_ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.cenosti_ul li {
+  flex: 1;
+  text-align: center;
+}
+
+/*Articles css*/
+.stati {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+}
+time {
+  font-weight: bold;
+  color: #333;
+}
+em {
+  font-style: normal;
+  color: #666;
+  font-size: 0.9em;
+  border-left: 3px solid #007bff;
+  padding-left: 8px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/*Contacts css*/
+.contacts {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+}
+.form_contacts {
+  border-width: 3px;
+  border-style: solid;
+  display: inline-block;
+  padding: 20px;
+  border-color: #333;
+  border-radius: 8px;
+  text-align: left;
+}
+.form_contacts div {
+  margin-bottom: 15px;
+}

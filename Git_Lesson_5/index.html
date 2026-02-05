@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="background-image: url(/images/images2.png)">
+    <nav class="navbar">
+      <a href="index.html"><strong>Home</strong></a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/articles.html">Articles</a>
+      <a href="/pages/contacts.html">Contacts</a>
+      <a href="/pages/gallery.html">Gallery</a>
+    </nav>
+
+    <main class="welcome">
+      <section>
+        <h1>Ласкаво просимо на мій сайт!</h1>
+        <p>
+          Це навчальний проєкт, створений для демонстрації навичок роботи з
+          <strong>HTML5</strong>. Тут ви знайдете цікаві статті, галерею
+          фотографій та інформацію про розробку.
+        </p>
+      </section>
+
+      <section>
+        <h2>Що нового на сайті?</h2>
+        <ul>
+          <li>
+            <strong>Статті:</strong> Нещодавно опубліковано матеріал про
+            <a href="pages/articles.html">вивчення HTML</a>.
+          </li>
+          <li>
+            <strong>Галерея:</strong> Додано нові фотографії природи та
+            архітектури у високій якості.
+          </li>
+          <li>
+            <strong>Зворотний зв'язок:</strong> Тепер ви можете написати нам
+            <a href="/pages/contacts.html#contacts">через форму</a> на сторінці
+            контактів.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Про мене коротко</h2>
+        <p>
+          Я вивчаю веброзробку і цей сайт є моїм першим кроком у світ IT. Більше
+          деталей можна знайти на сторінці
+          <a href="pages/about.html">"About"</a>.
+        </p>
+      </section>
+
+      <section style="text-align: center; margin: 20px">
+        <h2>Навчаємо IT</h2>
+
+        <form class="form_study">
+          <div>
+            <p>Особиста інформація</p>
+            <label for="name">Ім'я:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Введіть ваше ім'я"
+              required
+            />
+
+            <label for="email">Електронна пошта:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@mail.com"
+              required
+            />
+          </div>
+
+          <div>
+            <p>Вибір курсу</p>
+            <label for="course">Курс:</label>
+            <select id="course" name="course">
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="js">JavaScript</option>
+            </select>
+          </div>
+
+          <input type="submit" value="Надіслати" />
+        </form>
+      </section>
+    </main>
+    <footer
+      style="
+        background-color: rgb(174, 174, 167);
+        padding: 8px;
+        text-align: center;
+      "
+    >
+      <p><strong>Create in 2026</strong></p>
+    </footer>
+  </body>
+</html>
