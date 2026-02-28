@@ -1,0 +1,24 @@
+circle {
+  animation-name: circle-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes circle-color {
+  0% {
+    fill: red;
+    stroke: aquamarine;
+  }
+  25% {
+    fill: yellow;
+    stroke: blueviolet;
+  }
+  50% {
+    fill: blue;
+    stroke: cadetblue;
+  }
+  100% {
+    fill: green;
+    stroke: coral;
+  }
+}
