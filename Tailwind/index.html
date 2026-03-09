@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Магазин побутової техніки</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 font-sans text-gray-800">
+    <!-- HEADER -->
+    <header>
+      <nav
+        class="flex flex-col md:flex-row items-center justify-between bg-[#50d71e] text-white py-4 px-6 md:px-12"
+      >
+        <div class="flex items-center gap-4">
+          <span class="font-bold text-xl">LPGO</span>
+        </div>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="#" class="hover:underline">Головна</a>
+          <a href="#" class="hover:underline">Каталог</a>
+          <a href="#" class="hover:underline">Контакти</a>
+          <a href="#" class="hover:underline">Особистий кабінет</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex flex-col md:flex-row gap-8 p-6 md:p-12">
+      <aside
+        class="flex flex-col items-center gap-4 bg-[#C1CACA] p-6 rounded-xl md:w-1/4"
+      >
+        <h2 class="font-semibold text-lg">Пошук товару</h2>
+        <input
+          class="w-full rounded-xl border-2 border-indigo-600 p-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          placeholder="Введіть назву товара"
+        />
+        <button
+          class="w-full rounded-xl bg-[#2343a9] text-white py-2 hover:bg-[#1a3180] transition-colors"
+        >
+          Пошук
+        </button>
+      </aside>
+
+      <!-- CONTENT -->
+      <section
+        class="flex-1 flex flex-col gap-8 bg-white p-6 rounded-xl shadow-md"
+      >
+        <h1 class="text-2xl font-bold">Магазин побутової техніки</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
+          dicta sed temporibus odio expedita eum voluptate iste, non tenetur
+          ullam fugiat quae magni architecto nostrum possimus voluptatum
+          exercitationem, alias autem. Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Totam aperiam nemo, error debitis atque iste.
+          Excepturi temporibus, aperiam officiis illo voluptates quos fuga eius
+          alias voluptatum a nemo eos? Ducimus.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <img
+            class="h-36 w-[200px] object-cover lg:h-48 lg:w-[260px]"
+            src="goods.jpg"
+            alt="Toster"
+          />
+          <img
+            class="h-36 w-[200x] object-cover lg:h-48 lg:w-[260px]"
+            src="goods.jpg"
+            alt="Toster"
+          />
+          <img
+            class="h-36 w-[200px] object-cover lg:h-48 lg:w-[260px]"
+            src="goods.jpg"
+            alt="Toster"
+          />
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#50d71e] text-white py-6">
+      <div
+        class="flex flex-col md:flex-row justify-center gap-6 text-center md:text-left"
+      >
+        <span>+380-665-454-25</span>
+        <span>м.Київ, вул. Мира, буд.34</span>
+        <span>Працюємо з 09:00 - 17:00</span>
+      </div>
+    </footer>
+  </body>
+</html>
