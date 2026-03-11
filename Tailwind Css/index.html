@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      @theme {
+        --color-main-btn: #2d5e5e;
+        --color-second-text: #85aaab;
+        --color-main-text: #6de1e3;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="bg-[url(/img/header.jpg)] bg-cover text-white px-[130px] py-[64px]"
+    >
+      <nav class="flex flex-row justify-between px-12 mb-[120px]">
+        <img src="#" alt="Logo" />
+        <ul class="flex flex-row gap-x-[20px] font-[Montserrat]">
+          <li class="text-main-text font-bold underline">Головна</li>
+          <li class="font-bold text-second-text">Події</li>
+          <li class="font-bold text-second-text">Контакти</li>
+          <li class="font-bold text-second-text">Блог</li>
+        </ul>
+      </nav>
+      <section class="flex flex-col justify-start gap-y-[48px]">
+        <h1
+          class="font-[Oswald] font-bold text-[40px] w-[416px] h-[120px] leading-[60px]"
+        >
+          Ваш особистий психолог У Кривому Розі
+        </h1>
+        <p
+          class="font-[Montserrat] text-[24px] leading-[36px] w-[255px] h-[120px]"
+        >
+          Особисті, сімейні та групові консультації
+        </p>
+        <button
+          class="mb-[190px] w-full md:w-[250px] h-[48px] bg-main-btn rounded-xl hover:bg-second-text cursor-pointer"
+        >
+          Більше
+        </button>
+      </section>
+    </header>
+    <section
+      class="flex flex-col md:flex-row py-[60px] px-[180px] gap-y-[90px] md:gap-x-[40px] bg-[#FFF7F7]"
+    >
+      <div
+        class="flex flex-col justify-center items-center gap-y-[24px] lg:gap-y-[20px] text-center md:gap-y-[16px]"
+      >
+        <img src="goal.svg " class="w-[56px] h-[56px]" />
+        <h2
+          class="text-main-btn text-[24px] font-bold font-[Oswald] lg:[20px] sm:text-[16px]"
+        >
+          Особисті консультації
+        </h2>
+        <p class="font-[Montserrat] leading-[24px] text-center sm:text-[14px]">
+          Досягнення поставленої мети буває складним завданням, але за
+          правильної підтримки немає нічого неможливого
+        </p>
+      </div>
+      <div
+        class="flex flex-col justify-center items-center gap-y-[24px] lg:gap-y-[20px] text-center sm:gap-y-[16px]"
+      >
+        <img src="family-room.svg" class="w-[56px] h-[56px]" />
+        <h2
+          class="text-main-btn text-[24px] font-bold font-[Oswald] lg:text-[20px] sm:text-[16px]"
+        >
+          Сімейна терапія
+        </h2>
+        <p class="font-[Montserrat] leading-[24px] text-center sm:text-[14px]">
+          У будь-якої родини бувають кризові ситуації, тому в такі моменти
+          важливо підтримувати одне одного.
+        </p>
+      </div>
+      <div
+        class="flex flex-col justify-center items-center gap-y-[24px] lg:gap-y-[20px] text-center sm:gap-y-[16px]"
+      >
+        <img src="network.svg" class="w-[56px] h-[56px]" />
+        <h2
+          class="text-main-btn text-[24px] font-bold font-[Oswald] lg:text-[20px] sm:text-[16px]"
+        >
+          Сенситивні групи
+        </h2>
+        <p class="font-[Montserrat] leading-[24px] text-center sm:text-[14px]">
+          Групові заняття — чудове місце, щоб навчитися спілкуватися з
+          оточуючими людьми та розкрити свій потенціал
+        </p>
+      </div>
+    </section>
+    <section
+      class="relative bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('/img/block.png')] bg-cover text-white flex flex-row px-[135px] py-[60px]"
+    >
+      <div class="flex flex-col basis-2/3 gap-y-[40px]">
+        <h2 class="text-[36px] leading-[54px] font-bold font-[Oswald]">
+          Трохи про мене
+        </h2>
+        <p
+          class="w-[570px] h-[150px] font-bold font-[Montserrat] md:w-[470px] text-[14px]"
+        >
+          Далеко-далеко за словесними горами країни голосних і приголосних
+          живуть рибні тексти. Вдалині від усіх живуть вони в буквених будинках
+          на березі Семантика великого мовного океану. Маленький струмок Даль
+          дзюрчить по всій країні та забезпечує її всіма необхідними правилами.
+          Ця парадигматична країна, в якій смажені члени речення залітають
+          прямо.
+        </p>
+        <div class="flex flex-row gap-x-[16px]">
+          <button
+            class="border-4 border-main-btn rounded-xl w-[250px] h-[40px] hover:bg-second-text cursor-pointer"
+          >
+            Поставити питання
+          </button>
+          <button
+            class="bg-main-btn rounded-xl w-[250px] h-[40px] hover:bg-second-text cursor-pointer"
+          >
+            Хочу консультацію
+          </button>
+        </div>
+      </div>
+      <div class="basis-1/3 flex-shrink-0 hidden lg:block">
+        <img src="/img/about.jpg" class="h-full w-full object-cover" />
+      </div>
+    </section>
+  </body>
+</html>
