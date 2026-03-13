@@ -133,5 +133,61 @@
         <img src="/img/about.jpg" class="h-full w-full object-cover" />
       </div>
     </section>
+    <section
+      class="flex flex-col bg-[#FFF7F7] py-[60px] text-center gap-y-[40px]"
+    >
+      <h2
+        class="font-bold text-[24px] font-[Oswald] leading-[72px] md:text-[40px] lg:text-[48px]"
+      >
+        Записатися на консультацію
+      </h2>
+      <div class="flex flex-row gap-x-[30px] justify-center">
+        <div class="flex flex-col gap-y-[30px] w-[370px]">
+          <input
+            placeholder="Ваше ім'я"
+            class="border-2 border-solid rounded-md h-[40px] pl-[10px]"
+          />
+          <input
+            placeholder="Ваш телефон"
+            class="border-2 border-solid rounded-md h-[40px] pl-[10px]"
+          />
+          <select
+            name="options"
+            required
+            class="border-2 border-solid rounded-md h-[40px] pl-[10px]"
+          >
+            <option value="" disabled selected hidden>Тема зустрічі</option>
+            <option value="1">Вариант 1</option>
+            <option value="2">Вариант 2</option>
+          </select>
+        </div>
+        <div class="flex flex-row">
+          <textarea
+            placeholder="Побажання"
+            class="border-2 border-solid rounded-md w-[370px] pl-[10px]"
+          ></textarea>
+        </div>
+      </div>
+      <div class="flex flex-col gap-y-[30px] items-center">
+        <div class="flex flex-row justify-center gap-x-[15px]">
+          <input
+            type="checkbox"
+            id="check1"
+            name="option1"
+            value="1"
+            class="form-checkbox h-5 w-5"
+            style="accent-color: #2d5e5e"
+          />
+          <label class="text-[#2d5e5e]" for="check1"
+            >Я згоден із політикою конфіденційності</label
+          >
+        </div>
+        <button
+          class="bg-main-btn rounded-xl w-[250px] h-[40px] hover:bg-second-text cursor-pointer text-white font-[Montserrat]"
+        >
+          Відправити
+        </button>
+      </div>
+    </section>
   </body>
 </html>
