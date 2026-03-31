@@ -15,17 +15,16 @@ deepInnerFunction повинна виконувати операцію множ�
 function outerFunction(arg1) {
   function innerFunction(arg2) {
     function deepInnerFunction(arg3) {
-      // code
+      let result = arg1 * arg2 * arg3;
+      return result;
     }
-
-    // code
+    return deepInnerFunction;
   }
-
-  // code
+  return innerFunction;
 }
 
-// const result = outerFunction(2)(3)(4)
-// console.log(result) // Повинно повернути 24 (2*3*4)
+const result = outerFunction(2)(3)(4);
+console.log(result); // Повинно повернути 24 (2*3*4)
 
 /*
  Цей код є прикладом використання вкладених функцій у JavaScript, а також демонструє концепцію замикань (closures).
@@ -51,4 +50,4 @@ function outerFunction(arg1) {
  console.log(result) виводить результат, 24, у консоль.
 */
 
-export { outerFunction }
+// export { outerFunction };
