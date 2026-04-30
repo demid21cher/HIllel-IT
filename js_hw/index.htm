@@ -3,9 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Simple Image Slider</title>
+    <style>
+      .slider {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        touch-action: pan-y;
+        user-select: none;
+      }
+
+      .slides {
+        height: 150px;
+        width: 200px;
+        overflow: hidden;
+      }
+
+      .slide {
+        display: none;
+        width: 100%;
+        text-align: center;
+        font-size: 40px;
+        line-height: 150px;
+        background: lightgray;
+      }
+
+      .slide.active {
+        display: block;
+      }
+
+      .tools {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      button {
+        margin: 5px;
+      }
+
+      .dots {
+        margin-top: 10px;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 5px;
+        background: gray;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .dot.active {
+        background: black;
+      }
+    </style>
   </head>
   <body>
-    <script src="Main_2.js"></script>
+    <div class="slider">
+      <div class="slides">
+        <div class="slide active">1</div>
+        <div class="slide">2</div>
+        <div class="slide">3</div>
+      </div>
+
+      <div class="tools">
+        <button id="prev">←</button>
+        <button id="next">→</button>
+        <button id="toggle">Pause</button>
+      </div>
+
+      <div class="dots"></div>
+    </div>
+    <script src="slider.js"></script>
   </body>
 </html>
