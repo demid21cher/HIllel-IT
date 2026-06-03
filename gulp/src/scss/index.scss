@@ -1,0 +1,27 @@
+$primary-color: #4a90e2;
+$dark-color: #2c3e50;
+
+body {
+  background-color: #f5f7fa;
+  font-family: Arial, sans-serif;
+  color: $dark-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+  .wrapper {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    user-select: none;
+
+    h1 {
+      color: $primary-color;
+      margin-bottom: 15px;
+    }
+  }
+}
