@@ -1,0 +1,33 @@
+/* Оголошення локального шрифту */
+@font-face {
+  font-family: 'MyLocalFont';
+  src: url('../assets/fonts/MyLocalFont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #f4f4f9;
+  font-family: 'MyLocalFont', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+img {
+  max-width: 150px;
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
