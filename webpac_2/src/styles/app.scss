@@ -1,0 +1,10 @@
+@use 'sass:color';
+
+$primary-color: #4ed3a6;
+
+.card {
+  border: 2px solid $primary-color;
+  h1 {
+    color: color.adjust($primary-color, $lightness: -20%);
+  }
+}
