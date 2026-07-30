@@ -1,0 +1,9 @@
+.nav-link {
+  color: gray;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: red;
+  font-weight: bold;
+}
