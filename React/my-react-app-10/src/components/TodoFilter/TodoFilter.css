@@ -1,0 +1,39 @@
+.todo-filter {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  margin-bottom: 20px;
+  padding: 5px;
+
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.filter-button {
+  flex: 1;
+
+  padding: 9px 15px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #6b7280;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-button:hover {
+  color: #111827;
+}
+
+.filter-button.active {
+  background: #ffffff;
+  color: #4f46e5;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}

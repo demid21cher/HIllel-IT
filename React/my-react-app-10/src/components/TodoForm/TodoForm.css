@@ -1,0 +1,59 @@
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.todo-input {
+  flex: 1;
+
+  padding: 13px 15px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+  color: #111827;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.todo-input:focus {
+  border-color: #6366f1;
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.todo-add-button {
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #6366f1;
+  color: #ffffff;
+
+  font-weight: 600;
+
+  transition: background 0.2s, transform 0.2s;
+}
+
+.todo-add-button:hover {
+  background: #4f46e5;
+}
+
+.todo-add-button:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 500px) {
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .todo-add-button {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,31 @@
+.todo-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.todo-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.todo-card {
+  margin-top: 25px;
+  padding: 25px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 600px) {
+  .todo-page {
+    padding: 20px 12px;
+  }
+
+  .todo-card {
+    padding: 18px;
+  }
+}

@@ -1,0 +1,14 @@
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-todos {
+  padding: 30px 10px;
+
+  text-align: center;
+
+  color: #9ca3af;
+  font-size: 14px;
+}
