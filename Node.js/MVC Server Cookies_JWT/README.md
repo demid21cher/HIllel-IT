@@ -1,327 +1,546 @@
-# Express.js: PUG та EJS
+# Node.js + Express.js: Static Files, Cookies та JWT
 
-Навчальний проєкт на **Node.js + Express.js**, у якому використовуються два шаблонізатори:
+Навчальний проєкт на **Node.js** та **Express.js**, у якому реалізовано:
 
-- **PUG** — для сторінок користувачів.
-- **EJS** — для сторінок статей.
+- роботу зі статичними файлами;
+- відображення favicon на HTML-сторінках;
+- використання PUG та EJS;
+- збереження теми оформлення через cookies;
+- використання `cookie-parser`;
+- реєстрацію та авторизацію через JWT;
+- збереження JWT у `httpOnly` cookie;
+- захист маршрутів за допомогою middleware.
 
-## Завдання
+## 1. Технології
 
-### 1. Використання PUG
+- Node.js
+- Express.js
+- PUG
+- EJS
+- cookie-parser
+- jsonwebtoken
+- bcryptjs
+- express-session
 
-Сервер віддає сторінки:
-
-- `GET /users`
-- `GET /users/:userId`
-
-Для відображення використовується шаблонізатор **PUG**.
-
-### 2. Використання EJS
-
-Сервер віддає сторінки:
-
-- `GET /articles`
-- `GET /articles/:articleId`
-
-Для відображення використовується шаблонізатор **EJS**.
-
----
-
-## Структура проєкту
-
-```text
-project/
-│
-├── controllers/
-│   ├── articleController.js
-│   ├── rootController.js
-│   └── userController.js
-│
-├── middleware/
-│   ├── articleAccessMiddleware.js
-│   ├── authMiddleware.js
-│   ├── errorMiddleware.js
-│   ├── loggerMiddleware.js
-│   ├── sessionMiddleware.js
-│   └── validationMiddleware.js
-│
-├── routes/
-│   ├── articleRoutes.js
-│   ├── rootRoutes.js
-│   └── userRoutes.js
-│
-├── views/
-│   ├── users/
-│   │   ├── index.pug
-│   │   └── details.pug
-│   │
-│   └── articles/
-│       ├── index.ejs
-│       └── details.ejs
-│
-├── server.js
-├── package.json
-└── README.md
-```
-
----
-
-## Встановлення
-
-Встановити залежності:
+## 2. Встановлення залежностей
 
 ```bash
 npm install
 ```
 
-Якщо PUG та EJS ще не встановлені:
+Якщо потрібні пакети ще не встановлені:
 
 ```bash
-npm install pug ejs
+npm install express pug ejs cookie-parser jsonwebtoken bcryptjs express-session
 ```
 
----
-
-## Запуск сервера
-
-```bash
-node server.js
-```
-
-Після запуску сервер буде доступний за адресою:
+## 3. Структура проєкту
 
 ```text
-http://localhost:3000
+project/
+├── controllers/
+│   ├── authController.js
+│   ├── themeController.js
+│   ├── userController.js
+│   ├── articleController.js
+│   └── rootController.js
+├── middleware/
+│   ├── authMiddleware.js
+│   ├── articleAccessMiddleware.js
+│   ├── errorMiddleware.js
+│   ├── loggerMiddleware.js
+│   ├── sessionMiddleware.js
+│   ├── themeMiddleware.js
+│   └── validationMiddleware.js
+├── routes/
+│   ├── authRoutes.js
+│   ├── themeRoutes.js
+│   ├── userRoutes.js
+│   ├── articleRoutes.js
+│   └── rootRoutes.js
+├── public/
+│   ├── favicon.ico
+│   └── styles.css
+├── views/
+│   ├── users/
+│   │   ├── index.pug
+│   │   └── details.pug
+│   └── articles/
+│       ├── index.ejs
+│       └── details.ejs
+├── server.js
+├── package.json
+└── README.md
 ```
 
----
+## 4. Статичні файли та favicon
 
-## Маршрути користувачів
+У `server.js`:
 
-### Список користувачів
-
-```http
-GET /users
+```js
+app.use(express.static(path.join(__dirname, 'public')));
 ```
 
-Приклад:
+Файл favicon:
 
 ```text
-http://localhost:3000/users
+public/favicon.ico
 ```
 
-Для сторінки використовується шаблон:
-
-```text
-views/users/index.pug
-```
-
-### Інформація про користувача
-
-```http
-GET /users/:userId
-```
-
-Приклад:
-
-```text
-http://localhost:3000/users/1
-```
-
-Для сторінки використовується шаблон:
-
-```text
-views/users/details.pug
-```
-
----
-
-## Маршрути статей
-
-### Список статей
-
-```http
-GET /articles
-```
-
-Приклад:
-
-```text
-http://localhost:3000/articles
-```
-
-Для сторінки використовується шаблон:
-
-```text
-views/articles/index.ejs
-```
-
-### Інформація про статтю
-
-```http
-GET /articles/:articleId
-```
-
-Приклад:
-
-```text
-http://localhost:3000/articles/1
-```
-
-Для сторінки використовується шаблон:
-
-```text
-views/articles/details.ejs
-```
-
----
-
-## PUG
-
-PUG використовується для відображення користувачів.
-
-Приклад `index.pug`:
+### PUG
 
 ```pug
-doctype html
-html(lang="uk")
-  head
-    meta(charset="UTF-8")
-    title Список користувачів
-
-  body
-    h1 Список користувачів
-
-    ul
-      each user in users
-        li
-          a(href='/users/' + user.id)= user.name
-          |  — #{user.email}
+link(rel="icon" href="/favicon.ico")
 ```
 
----
-
-## EJS
-
-EJS використовується для відображення статей.
-
-Приклад `index.ejs`:
+### EJS
 
 ```html
-<!DOCTYPE html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Статті</title>
-  </head>
-  <body>
-    <h1>Список статей</h1>
-
-    <ul>
-      <% articles.forEach(article => { %>
-      <li>
-        <a href="/articles/<%= article.id %>"> <%= article.title %> </a>
-        — <%= article.author %>
-      </li>
-      <% }) %>
-    </ul>
-  </body>
-</html>
+<link rel="icon" href="/favicon.ico" />
 ```
 
----
+Таким чином favicon відображається на всіх HTML-сторінках.
 
-## Контролери
+## 5. Cookies
 
-У контролерах для відображення HTML використовується метод:
+Підключення:
 
 ```js
-res.render();
+import cookieParser from 'cookie-parser';
+
+app.use(cookieParser());
 ```
 
-Для PUG:
+Cookies читаються через:
 
 ```js
-res.render('users/index.pug', {
-  users,
+req.cookies;
+```
+
+## 6. Збереження теми
+
+`controllers/themeController.js`:
+
+```js
+export const setTheme = (req, res) => {
+  const { theme } = req.body;
+
+  if (!['light', 'dark'].includes(theme)) {
+    return res.status(400).json({
+      message: 'Theme must be light or dark',
+    });
+  }
+
+  res.cookie('theme', theme, {
+    maxAge: 1000 * 60 * 60 * 24 * 30,
+    sameSite: 'lax',
+  });
+
+  res.json({
+    message: 'Theme saved',
+    theme,
+  });
+};
+
+export const getTheme = (req, res) => {
+  const theme = req.cookies.theme || 'light';
+
+  res.json({ theme });
+};
+```
+
+`routes/themeRoutes.js`:
+
+```js
+import express from 'express';
+
+import { setTheme, getTheme } from '../controllers/themeController.js';
+
+const router = express.Router();
+
+router.get('/', getTheme);
+router.post('/', setTheme);
+
+export default router;
+```
+
+Маршрути:
+
+```text
+GET /theme
+POST /theme
+```
+
+Приклад:
+
+```json
+{
+  "theme": "dark"
+}
+```
+
+## 7. Middleware теми
+
+`middleware/themeMiddleware.js`:
+
+```js
+export const themeMiddleware = (req, res, next) => {
+  res.locals.theme = req.cookies.theme || 'light';
+  next();
+};
+```
+
+## 8. CSS для тем
+
+`public/styles.css`:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  padding: 30px;
+}
+
+body.light {
+  background: white;
+  color: black;
+}
+
+body.dark {
+  background: #222;
+  color: white;
+}
+
+body.dark a {
+  color: #7db7ff;
+}
+```
+
+PUG:
+
+```pug
+body(class=theme)
+```
+
+EJS:
+
+```html
+<body class="<%= theme %>"></body>
+```
+
+## 9. JWT
+
+Для JWT використовується пакет `jsonwebtoken`.
+
+Токен зберігається у cookie:
+
+```js
+res.cookie('token', token, {
+  httpOnly: true,
+  maxAge: 1000 * 60 * 60,
+  sameSite: 'lax',
 });
 ```
 
-Для EJS:
+`httpOnly: true` захищає токен від доступу через `document.cookie`.
+
+## 10. Реєстрація та вхід
+
+`controllers/authController.js`:
 
 ```js
-res.render('articles/index.ejs', {
-  articles,
-});
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'my-jwt-secret';
+const users = [];
+
+const createToken = (user) => {
+  return jwt.sign(
+    {
+      id: user.id,
+      email: user.email,
+    },
+    JWT_SECRET,
+    {
+      expiresIn: '1h',
+    }
+  );
+};
+
+export const register = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({
+      message: 'Email and password are required',
+    });
+  }
+
+  const exists = users.find((user) => user.email === email);
+
+  if (exists) {
+    return res.status(400).json({
+      message: 'User already exists',
+    });
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const user = {
+    id: users.length + 1,
+    email,
+    password: hashedPassword,
+  };
+
+  users.push(user);
+
+  const token = createToken(user);
+
+  res.cookie('token', token, {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60,
+    sameSite: 'lax',
+  });
+
+  res.status(201).json({
+    message: 'Registration successful',
+    user: {
+      id: user.id,
+      email: user.email,
+    },
+  });
+};
+
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = users.find((user) => user.email === email);
+
+  if (!user) {
+    return res.status(401).json({
+      message: 'Invalid email or password',
+    });
+  }
+
+  const validPassword = await bcrypt.compare(password, user.password);
+
+  if (!validPassword) {
+    return res.status(401).json({
+      message: 'Invalid email or password',
+    });
+  }
+
+  const token = createToken(user);
+
+  res.cookie('token', token, {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60,
+    sameSite: 'lax',
+  });
+
+  res.json({
+    message: 'Login successful',
+  });
+};
+
+export const logout = (req, res) => {
+  res.clearCookie('token');
+
+  res.json({
+    message: 'Logout successful',
+  });
+};
 ```
 
----
+## 11. Маршрути авторизації
 
-## Валідація ID
+`routes/authRoutes.js`:
 
-Для маршрутів із параметрами:
+```js
+import express from 'express';
 
-```text
-/users/:userId
-/articles/:articleId
+import { register, login, logout } from '../controllers/authController.js';
+
+const router = express.Router();
+
+router.post('/register', register);
+router.post('/login', login);
+router.post('/logout', logout);
+
+export default router;
 ```
 
-використовується middleware для перевірки, що ID містить тільки цифри.
-
-При неправильному ID сервер повертає:
+Маршрути:
 
 ```text
-400 Invalid user ID
+POST /auth/register
+POST /auth/login
+POST /auth/logout
+```
+
+## 12. JWT Middleware
+
+`middleware/authMiddleware.js`:
+
+```js
+import jwt from 'jsonwebtoken';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'my-jwt-secret';
+
+export const authMiddleware = (req, res, next) => {
+  const token = req.cookies.token;
+
+  if (!token) {
+    return res.status(401).json({
+      message: 'Authentication required',
+    });
+  }
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    req.user = decoded;
+
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      message: 'Invalid or expired token',
+    });
+  }
+};
+```
+
+Алгоритм:
+
+```text
+HTTP-запит
+    ↓
+JWT cookie
+    ↓
+authMiddleware
+    ↓
+jwt.verify()
+    ↓
+req.user
+    ↓
+контролер
+```
+
+## 13. Захищені маршрути
+
+```js
+router.get('/', authMiddleware, getUsers);
 ```
 
 або:
 
-```text
-400 Invalid article ID
+```js
+router.get('/:userId', authMiddleware, validateUserId, getUserById);
 ```
 
----
-
-## Авторизація
-
-У проєкті присутній `authMiddleware`.
-
-Для захищених маршрутів необхідно передати HTTP-заголовок:
-
-```text
-Authorization: Bearer valid-token
-```
-
-Без токена сервер повертає:
+Без токена:
 
 ```text
 401 Authentication required
 ```
 
-Якщо GET-сторінки потрібно відкривати без авторизації у звичайному браузері, `authMiddleware` можна прибрати з GET-маршрутів `/users`, `/users/:userId`, `/articles` та `/articles/:articleId`.
+При неправильному або простроченому JWT:
 
----
+```text
+401 Invalid or expired token
+```
 
-## Обробка помилок
+## 14. server.js
 
-У проєкті реалізовані middleware для:
+```js
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-- помилки `404 Route not found`;
-- внутрішньої помилки сервера `500 Internal server error`;
-- перевірки авторизації;
-- перевірки ID;
-- логування HTTP-запитів;
-- роботи із сесіями.
+import rootRoutes from './routes/rootRoutes.js';
+import userRoutes from './routes/userRoutes.js';
+import articleRoutes from './routes/articleRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import themeRoutes from './routes/themeRoutes.js';
 
----
+import { sessionMiddleware } from './middleware/sessionMiddleware.js';
+import { themeMiddleware } from './middleware/themeMiddleware.js';
 
-## Результат
+import {
+  notFoundMiddleware,
+  errorMiddleware,
+} from './middleware/errorMiddleware.js';
 
-Проєкт демонструє одночасне використання двох шаблонізаторів у Express.js:
+const app = express();
+const port = 3000;
 
-| Маршрут                | Шаблонізатор |
-| ---------------------- | ------------ |
-| `/users`               | PUG          |
-| `/users/:userId`       | PUG          |
-| `/articles`            | EJS          |
-| `/articles/:articleId` | EJS          |
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(sessionMiddleware);
+app.use(themeMiddleware);
+
+app.use('/', rootRoutes);
+app.use('/auth', authRoutes);
+app.use('/theme', themeRoutes);
+app.use('/users', userRoutes);
+app.use('/articles', articleRoutes);
+
+app.use(notFoundMiddleware);
+app.use(errorMiddleware);
+
+app.listen(port, () => {
+  console.log(`Сервер запущено за адресою http://localhost:${port}`);
+});
+```
+
+## 15. Запуск
+
+```bash
+node server.js
+```
+
+Сервер:
+
+```text
+http://localhost:3000
+```
+
+## 16. Основні маршрути
+
+| Метод | Маршрут                | Призначення         |
+| ----- | ---------------------- | ------------------- |
+| GET   | `/users`               | Список користувачів |
+| GET   | `/users/:userId`       | Дані користувача    |
+| GET   | `/articles`            | Список статей       |
+| GET   | `/articles/:articleId` | Дані статті         |
+| GET   | `/theme`               | Отримати тему       |
+| POST  | `/theme`               | Зберегти тему       |
+| POST  | `/auth/register`       | Реєстрація          |
+| POST  | `/auth/login`          | Вхід                |
+| POST  | `/auth/logout`         | Вихід               |
+| GET   | `/favicon.ico`         | Favicon             |
+
+## 17. Результат
+
+У проєкті реалізовано:
+
+- Node.js та Express.js;
+- PUG та EJS;
+- статичні файли через `public`;
+- favicon;
+- cookies через `cookie-parser`;
+- збереження світлої/темної теми;
+- JWT-авторизацію;
+- реєстрацію, вхід і вихід;
+- хешування паролів через `bcryptjs`;
+- JWT у `httpOnly` cookie;
+- middleware для перевірки JWT;
+- захищені маршрути.
