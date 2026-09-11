@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Статті</title>
+  </head>
+
+  <body>
+    <h1>Список статей</h1>
+
+    <ul>
+      <% articles.forEach(article => { %>
+
+      <li>
+        <a href="/articles/<%= article.id %>"> <%= article.title %> </a>
+
+        — <%= article.author %>
+      </li>
+
+      <% }) %>
+    </ul>
+  </body>
+</html>

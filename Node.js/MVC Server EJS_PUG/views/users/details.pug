@@ -1,0 +1,15 @@
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    title Інформація про користувача
+
+  body
+    h1 Інформація про користувача
+
+    p ID: #{user.id}
+    p Ім'я: #{user.name}
+    p Email: #{user.email}
+    p Вік: #{user.age}
+
+    a(href="/users") Назад до користувачів
