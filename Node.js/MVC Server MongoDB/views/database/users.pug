@@ -1,0 +1,42 @@
+doctype html
+
+html(lang="uk")
+
+  head
+    meta(charset="UTF-8")
+
+    title MongoDB Users
+
+    link(
+      rel="icon"
+      href="/favicon.ico"
+    )
+
+    link(
+      rel="stylesheet"
+      href="/styles.css"
+    )
+
+  body(class=theme)
+
+    h1 Користувачі з MongoDB Atlas
+
+    if users.length === 0
+
+      p У базі даних немає користувачів.
+
+    else
+
+      ul
+
+        each user in users
+
+          li
+
+            strong= user.name
+
+            |  — #{user.email}
+
+            if user.age
+
+              |  — #{user.age} років

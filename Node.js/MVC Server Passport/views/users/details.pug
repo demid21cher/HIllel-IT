@@ -1,0 +1,19 @@
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    title Користувач
+
+    link(rel="icon" href="/favicon.ico")
+    link(rel="stylesheet" href="/styles.css")
+
+  body(class=theme)
+
+    h1 Інформація про користувача
+
+    p ID: #{user.id}
+    p Ім'я: #{user.name}
+    p Email: #{user.email}
+    p Вік: #{user.age}
+
+    a(href="/users") Назад
